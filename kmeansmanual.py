@@ -1,5 +1,6 @@
 from operator import le
 from optparse import Values
+from pydoc import cli
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -32,7 +33,8 @@ numrowsTraining = 9 #nanti kalau sudah bisa, ganti ke numrows
 jumlah_centroidTraining = 9 #kalau sudah bisa, ganti ke Jumlah_centroid
 
 #Siapkan Array penampung nilai
-clustersR = [0]*jumlah_centroidTraining
+s = (jumlah_centroidTraining,2)
+clustersR = np.zeros(s,dtype=int)
 
 #Looping sebanyak jumlah data pelanggan
 for i in range(numrowsTraining):
@@ -51,8 +53,9 @@ for i in range(numrowsTraining):
     index_min = min(range(len(evs)),key=evs.__getitem__)
     print(index_min)
     #Masukkan Nilainya ke cluster
-    clustersR[5] = index_min
+    clustersR = np.insert(clustersR)
 
+clustersR[0][1] = 4
 print(clustersR)
 
 coba = [1,2,3],[2,3,4]
