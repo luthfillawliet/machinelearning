@@ -32,9 +32,10 @@ plt.show()
 numrowsTraining = 9 #nanti kalau sudah bisa, ganti ke numrows
 jumlah_centroidTraining = 9 #kalau sudah bisa, ganti ke Jumlah_centroid
 
-#Siapkan Array penampung nilai
-s = (jumlah_centroidTraining,2)
-clustersR = np.zeros(s,dtype=int)
+#Membuat list penampung centroid
+clustersR = {}
+for n in range(jumlah_centroidTraining):
+    clustersR["clusters{0}".format(n)] = []
 
 #Looping sebanyak jumlah data pelanggan
 for i in range(numrowsTraining):
@@ -53,13 +54,12 @@ for i in range(numrowsTraining):
     index_min = min(range(len(evs)),key=evs.__getitem__)
     print(index_min)
     #Masukkan Nilainya ke cluster
-    clustersR = np.insert(clustersR)
+    nameindex = ("clusters"+str(index_min))
+    clustersR[nameindex].insert(1,i)
 
-clustersR[0][1] = 4
 print(clustersR)
 
-coba = [1,2,3],[2,3,4]
-print(coba)
+
 
 
     #Masukkan data ke cluster sesuai index yang paling minimal
